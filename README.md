@@ -1,11 +1,12 @@
 # R Peak Detection using CNN
 
-##  Project Overview
+## Project Overview
 
 This project implements **R-Peak Detection in ECG signals using Convolutional Neural Network (CNN)**.
-The model is trained on the **MIT-BIH Arrhythmia Dataset** and predicts the location of R-peaks in ECG signals.
+The model is trained on the **MIT-BIH Arrhythmia Dataset** using the WFDB library.
 
-This project is part of my work in ** Deep Learning / FPGA-based ECG analysis**.
+The goal of this project is to detect R-peaks accurately for future use in
+real-time ECG analysis and FPGA-based implementation.
 
 ---
 
@@ -20,17 +21,14 @@ This project is part of my work in ** Deep Learning / FPGA-based ECG analysis**.
 
 ##  Project Structure
 
-```
 CNN_R_PEAK_PROJECT/
-│
-├── cnn_r_peak_new.ipynb
-├── CNN R peak.ipynb
-├── cnn_rpeak_model.pth
-├── download_mitbih.py
-├── data/
-├── model/
-├── code/
-```
+
+* cnn_r_peak_new.ipynb
+* CNN R peak.ipynb
+* cnn_rpeak_model.pth
+* requirements.txt
+* README.md
+* .gitignore
 
 ---
 
@@ -39,18 +37,22 @@ CNN_R_PEAK_PROJECT/
 Dataset used:
 
 * MIT-BIH Arrhythmia Database
-* Source: PhysioNet
+* Loaded using WFDB
 
-ECG signals are loaded using `wfdb` library.
+Dataset is downloaded automatically using:
+
+```python
+wfdb.dl_database("mitdb", "data")
+```
 
 ---
 
 ##  Steps in Project
 
 1. Import libraries
-2. Load MIT-BIH ECG data
-3. Preprocess signal
-4. Generate training windows
+2. Download MIT-BIH dataset
+3. Load ECG signal
+4. Create training windows
 5. Build CNN model
 6. Train model
 7. Predict R-peaks
@@ -58,12 +60,31 @@ ECG signals are loaded using `wfdb` library.
 
 ---
 
+##  Results
+
+The CNN model successfully detects R-peaks in ECG signals.
+
+Outputs:
+
+* ECG signal plot
+* R-peak prediction
+* Training loss graph
+* Saved model (.pth)
+
+Example result:
+
+
+<img width="980" height="374" alt="image" src="https://github.com/user-attachments/assets/61f41f80-e2f4-4f2d-90b9-8d0999a4bf3a" />
+
+
+---
+
 ##  How to Run
 
-Install dependencies:
+Install libraries:
 
 ```
-pip install numpy matplotlib torch wfdb
+pip install numpy matplotlib torch wfdb scikit-learn
 ```
 
 Run notebook:
@@ -74,29 +95,20 @@ cnn_r_peak_new.ipynb
 
 ---
 
-##  Output
-
-* Predicted R-peaks
-* ECG signal plot
-* Training loss graph
-* Model saved as `.pth`
-
----
-
 ##  Applications
 
 * ECG analysis
 * Heartbeat detection
-* FPGA implementation
-* Biomedical AI
-* Real-time monitoring
+* Biomedical signal processing
+* Deep learning research
+* FPGA implementation (future work)
 
 ---
 
 ##  Author
 
 Shreya Sharma
-Electronics & Communication Engineering
-Deep Learning | FPGA 
+Electronics and Communication Engineering
+Deep Learning | FPGA | Biomedical Signal Processing
 
 ---
